@@ -22,6 +22,8 @@ module.exports = {
   },
   rules: {
     'vue/max-attributes-per-line': 'off',
+    'space-before-function-paren': 'off',
+    'sprefer-spread': 'off',
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     '@typescript-eslint/ban-types': 'off',
