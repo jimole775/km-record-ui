@@ -12,6 +12,7 @@ class Keys {
   static sizeKey = 'vue3-typescript-admin-sizeKey'
   static tokenKey = 'vue3-typescript-admin-access-token'
   static aseKey = 'vue3-typescript-admin-ase-key'
+  static rectKey = 'vue3-typescript-admin-rect-key'
 }
 
 export default Keys

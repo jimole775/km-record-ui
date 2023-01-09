@@ -1,0 +1,27 @@
+<!--
+ * @ Author: Rongxis
+ * @ Create Time: 2023-01-09 22:49:14
+ * @ Modified by: Rongxis
+ * @ Modified time: 2023-01-09 22:52:25
+ * @ Description:
+ -->
+<template>
+  <div>
+    <svg class="icon" font-size="3.6rem">
+      <use xlink:href="#icon-nodata" />
+    </svg>
+    <span>{{ t('components.noData') }}</span>
+  </div>
+</template>
+<script lang="ts">
+import { defineComponent } from 'vue'
+import { useI18n } from 'vue-i18n'
+export default defineComponent({
+  setup () {
+    const { t } = useI18n()
+    return {
+      t
+    }
+  }
+})
+</script>

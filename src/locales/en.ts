@@ -1,9 +1,9 @@
-/*
- * @Description:
- * @Author: Rongxis
- * @Date: 2020-12-28 17:18:17
- * @LastEditors: Rongxis
- * @LastEditTime: 2021-01-20 15:18:42
+/**
+ * @ Author: Rongxis
+ * @ Create Time: 2023-01-07 17:03:24
+ * @ Modified by: Rongxis
+ * @ Modified time: 2023-01-09 22:53:58
+ * @ Description:
  */
 
 export default {
@@ -123,6 +123,7 @@ export default {
     button: 'Show Guide'
   },
   components: {
+    noData: 'no data',
     documentation: 'Documentation',
     tinymceTips: 'Rich text is a core feature of the management backend, but at the same time it is a place with lots of pits. In the process of selecting rich texts, I also took a lot of detours. The common rich texts on the market have been basically used, and I finally chose Tinymce. See the more detailed rich text comparison and introduction.',
     stickyTips: 'when the page is scrolled to the preset position will be sticky on the top.',

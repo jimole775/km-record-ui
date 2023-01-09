@@ -4,7 +4,7 @@
   "private": true,
   "engines": {
     "node": "version >= 16",
-    "yarn": "version >= 2"
+    "yarn": "version >= 3"
   },
   "homepage": "https://github.com/jimole775/km-record-ui",
   "scripts": {

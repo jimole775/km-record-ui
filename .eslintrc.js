@@ -22,8 +22,8 @@ module.exports = {
   },
   rules: {
     'vue/max-attributes-per-line': 'off',
-    'space-before-function-paren': 'off',
-    'sprefer-spread': 'off',
+    'prefer-spread': 'off',
+    'space-before-function-paren': 0,
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     '@typescript-eslint/ban-types': 'off',
@@ -38,7 +38,6 @@ module.exports = {
         }
       }],
     '@typescript-eslint/no-explicit-any': 'off',
-    'space-before-function-paren': ['error', 'never'],
     'vue/array-bracket-spacing': 'error',
     'vue/arrow-spacing': 'error',
     'vue/block-spacing': 'error',

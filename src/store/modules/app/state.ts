@@ -5,12 +5,19 @@
  * @LastEditors: Rongxis
  * @LastEditTime: 2020-12-23 10:30:35
  */
-import { getSidebarStatus, getSize } from '@/utils/cookies'
+import { getSidebarStatus, getSize, getRect } from '@/utils/cookies'
 import { getLocale } from '@/locales'
 
 export enum DeviceType {
   Mobile,
   Desktop,
+}
+
+export interface Rect {
+  w?: number
+  h?: number
+  x?: number
+  y?: number
 }
 
 export interface AppState {
@@ -21,6 +28,7 @@ export interface AppState {
   }
   language: string
   size: string
+  rect: Rect
 }
 
 export const state: AppState = {
@@ -30,5 +38,6 @@ export const state: AppState = {
     withoutAnimation: false
   },
   language: getLocale(),
-  size: getSize() || 'medium'
+  size: getSize() || 'medium',
+  rect: getRect() || { w: 800, h: 280, x: 0, y: 0 }
 }

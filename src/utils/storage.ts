@@ -9,17 +9,17 @@
 import VAES from './ase'
 import Cookies from 'js-cookie'
 
-export enum StorageType{
-    local,
-    session,
-    cookie
+export enum StorageType {
+  local,
+  session,
+  cookie
 }
 
-interface VStorageInterface{
-    rcSetItem<T>(type: StorageType, key: string, value: T): void
-    rcGetItem(type: StorageType, key: string): string | null
-    rcRemoveItem(type: StorageType, key: string): void
- }
+interface VStorageInterface {
+  rcSetItem<T>(type: StorageType, key: string, value: T): void
+  rcGetItem(type: StorageType, key: string): string | null
+  rcRemoveItem(type: StorageType, key: string): void
+}
 
 class VStorage implements VStorageInterface {
   private static instance: VStorage

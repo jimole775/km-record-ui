@@ -9,7 +9,7 @@ import { ActionTree, ActionContext } from 'vuex'
 
 // eslint-disable-next-line import/no-cycle
 import { RootState } from '@/store'
-import { AppState, DeviceType } from './state'
+import { AppState, DeviceType, Rect } from './state'
 import { Mutations } from './mutations'
 import { AppMutationTypes } from './mutation-types'
 import { AppActionTypes } from './action-types'
@@ -41,6 +41,10 @@ export interface Actions {
     { commit }: AugmentedActionContext,
     size: string
   ): void
+  [AppActionTypes.ACTION_SET_RECT](
+    { commit }: AugmentedActionContext,
+    rect: Rect
+  ): void
 }
 
 export const actions: ActionTree<AppState, RootState> & Actions = {
@@ -58,5 +62,8 @@ export const actions: ActionTree<AppState, RootState> & Actions = {
   },
   [AppActionTypes.ACTION_SET_SIZE]({ commit }, size: string) {
     commit(AppMutationTypes.SET_SIZE, size)
+  },
+  [AppActionTypes.ACTION_SET_RECT]({ commit }, rect: Rect) {
+    commit(AppMutationTypes.SET_RECT, rect)
   }
 }

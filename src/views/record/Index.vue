@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-08 19:42:42
+ * @ Modified time: 2023-01-09 23:34:17
  * @ Description:
  -->
 
@@ -62,9 +62,9 @@
         </div>
       </el-col>
     </el-row>
-    <div class="foot-bar">
-      <div class="opr-list">
-        <a class="list-icon">
+    <div class="foot-part">
+      <div class="opr-bar">
+        <a class="list-icon" @click="openList">
           <svg
             class="icon"
             aria-hidden="true"
@@ -74,29 +74,41 @@
           </svg>
         </a>
       </div>
-      <div class="data-list">
-        <el-table
-          :data="list"
-        >
-          <el-table-column prop="date" label="Date" sortable width="180" />
-          <el-table-column prop="name" label="Name" width="180" />
-        </el-table>
+      <div
+        v-if="switchSign"
+        class="data-list"
+        :style="{height: listHeight + 'px'}"
+      >
+        <RecordItemList />
       </div>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent } from 'vue'
-import goback from '@/components/goback/Index.vue'
+import { store } from '@/store'
 import { useI18n } from 'vue-i18n'
+import { defineComponent, reactive, toRefs } from 'vue'
+import useRect from '@/utils/use_rect'
+import goback from '@/components/goback/Index.vue'
+import RecordItemList from './RecordItemList.vue'
 export default defineComponent({
   components: {
-    goback
+    goback,
+    RecordItemList
   },
   setup() {
+    const listHeight = 260
     const { t } = useI18n()
+    const { h = 0 } = store.state.app.rect
+    const state = reactive({ switchSign: false })
+    const openList = () => {
+      state.switchSign = !state.switchSign
+      useRect({ h: state.switchSign ? h + listHeight : h })
+    }
     return {
-      list: [{ data: 1, name: 2 }],
+      ...toRefs(state),
+      openList,
+      listHeight,
       t
     }
   }
@@ -149,15 +161,15 @@ export default defineComponent({
     background: #333;
   }
 }
-.foot-bar {
+.foot-part {
   height: 40px;
   background: #1A1B20;
-  .opr-list {
+  .opr-bar {
     margin: 0 3px;
     border-top: 1px solid #030303;
   }
   .data-list {
-
+    background: #1A1B20;
   }
 }
 </style>
