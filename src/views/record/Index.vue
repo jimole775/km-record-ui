@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-09 23:34:17
+ * @ Modified time: 2023-01-10 22:27:56
  * @ Description:
  -->
 
@@ -63,7 +63,7 @@
       </el-col>
     </el-row>
     <div class="foot-part">
-      <div class="opr-bar">
+      <div class="opr-bar" :style="{borderBottom: switchSign ? '1px solid #030303' : ''}">
         <a class="list-icon" @click="openList">
           <svg
             class="icon"
@@ -74,23 +74,24 @@
           </svg>
         </a>
       </div>
-      <div
-        v-if="switchSign"
-        class="data-list"
-        :style="{height: listHeight + 'px'}"
-      >
-        <RecordItemList />
-      </div>
+    </div>
+    <div
+      v-if="switchSign"
+      class="data-bar"
+      :style="{height: listHeight + 'px'}"
+    >
+      <RecordItemList />
     </div>
   </div>
 </template>
 <script lang="ts">
-import { store } from '@/store'
+// import { store } from '@/store'
 import { useI18n } from 'vue-i18n'
 import { defineComponent, reactive, toRefs } from 'vue'
 import useRect from '@/utils/use_rect'
 import goback from '@/components/goback/Index.vue'
 import RecordItemList from './RecordItemList.vue'
+import { defaultRect } from '@/constant/default_rect'
 export default defineComponent({
   components: {
     goback,
@@ -99,7 +100,7 @@ export default defineComponent({
   setup() {
     const listHeight = 260
     const { t } = useI18n()
-    const { h = 0 } = store.state.app.rect
+    const h = defaultRect.height || 0
     const state = reactive({ switchSign: false })
     const openList = () => {
       state.switchSign = !state.switchSign
@@ -162,14 +163,11 @@ export default defineComponent({
   }
 }
 .foot-part {
-  height: 40px;
-  background: #1A1B20;
   .opr-bar {
     margin: 0 3px;
     border-top: 1px solid #030303;
   }
-  .data-list {
-    background: #1A1B20;
+  .data-bar {
   }
 }
 </style>

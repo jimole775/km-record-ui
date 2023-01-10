@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 00:28:59
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-08 02:12:16
+ * @ Modified time: 2023-01-10 22:20:10
  * @ Description:
  -->
 <template>
@@ -22,9 +22,14 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import router from '@/router'
+import useRect from '@/utils/use_rect'
+import { defaultRect } from '@/constant/default_rect'
 export default defineComponent({
   setup() {
     const goback = () => {
+      const w = defaultRect.width
+      const h = defaultRect.height
+      useRect({ w, h })
       router.go(-1)
     }
     return { goback }

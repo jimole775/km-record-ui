@@ -82,6 +82,7 @@ export default {
     more: 'more'
   },
   record: {
+    batchDelete: 'delete',
     web: 'web',
     game: 'game',
     hotkey: 'hot key',

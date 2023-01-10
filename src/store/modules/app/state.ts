@@ -39,5 +39,5 @@ export const state: AppState = {
   },
   language: getLocale(),
   size: getSize() || 'medium',
-  rect: getRect() || { w: 800, h: 280, x: 0, y: 0 }
+  rect: getRect()
 }

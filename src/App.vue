@@ -15,7 +15,7 @@ import { defineComponent } from 'vue'
 export default defineComponent({
 })
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .el-menu-item:hover{
   outline: 0 !important;
   color: #409EFF !important;

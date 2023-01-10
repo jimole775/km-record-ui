@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:36:05
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-08 01:39:17
+ * @ Modified time: 2023-01-10 21:30:34
  * @ Description:
  */
 
@@ -31,6 +31,44 @@
     cursor: pointer;
     &:hover {
       color: #0091FF;
+    }
+  }
+}
+
+div.el-table {
+  &::before {
+    background-color: $dark;
+  }
+  border-spacing: 0;
+  background-color: $dark;
+  width: 100%;
+  div.el-table__header-wrapper {
+    table.el-table__header {
+      thead {
+        tr th {
+          border-bottom: 0;
+          background-color: $dark;
+          color: $defaultTextColor;
+        }
+      }
+    }
+  }
+  div.el-table__body-wrapper {
+    table.el-table__body {
+      tbody {
+        tr {
+          &:hover {
+            td {
+              background-color: lighten($dark, 10%);
+            }
+          }
+          td {
+            border-bottom: 0;
+            background-color: $dark;
+            color: $defaultTextColor;
+          }
+        }
+      }
     }
   }
 }

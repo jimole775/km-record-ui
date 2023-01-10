@@ -9,6 +9,7 @@ $green: #30B08F;
 $tiffany: #4AB7BD;
 $yellow:#FEC171;
 $panGreen: #30B08F;
+$dark: rgb(26, 27, 32);
 
 // Sidebar
 $sideBarWidth:300px;
@@ -24,6 +25,10 @@ $lightGray: #eee;
 $darkGray:#889aa4;
 $loginBg: #2d3a4b;
 $loginCursorColor: #fff;
+
+// common
+$defaultTextColor: #d2d2d2;
+$lightTextColor: #fff;
 
 // The :export directive is the magic sauce for webpack
 // https://mattferderer.com/use-sass-variables-in-typescript-and-javascript

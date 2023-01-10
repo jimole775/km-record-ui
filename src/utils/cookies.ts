@@ -5,6 +5,7 @@
  * @LastEditors: Rongxis
  * @LastEditTime: 2020-12-17 17:23:14
  */
+import { defaultRect } from '@/constant/default_rect'
 import Keys from '@/constant/key'
 import { Rect } from '@/store/modules/app/state'
 import Cookies from 'js-cookie'
@@ -16,8 +17,9 @@ export const getLanguage = () => Cookies.get(Keys.languageKey)
 export const setLanguage = (language: string) => Cookies.set(Keys.languageKey, language)
 
 export const getRect = () => {
-  const val = Cookies.get(Keys.rectKey)
-  return val ? JSON.parse(val) : null
+  const val = Cookies.get(Keys.rectKey) || '{}'
+  const { w = defaultRect.width, h = defaultRect.height, x = defaultRect.x, y = defaultRect.y } = JSON.parse(val)
+  return { w, h, x, y }
 }
 export const setRect = (rect: Rect) => Cookies.set(Keys.rectKey, rect)
 

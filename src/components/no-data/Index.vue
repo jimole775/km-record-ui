@@ -2,11 +2,11 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-09 22:49:14
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-09 22:52:25
+ * @ Modified time: 2023-01-10 22:21:26
  * @ Description:
  -->
 <template>
-  <div>
+  <div class="wrapper">
     <svg class="icon" font-size="3.6rem">
       <use xlink:href="#icon-nodata" />
     </svg>
@@ -25,3 +25,15 @@ export default defineComponent({
   }
 })
 </script>
+<style lang="scss" scoped>
+.wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  span {
+    font-size: .9rem;
+  }
+}
+</style>

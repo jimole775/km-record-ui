@@ -7,8 +7,9 @@
 -->
 <template>
   <div
-    :class="classObj"
     class="app-wrapper"
+    :class="classObj"
+    :style="{width: rect.w + 'px', height: rect.h + 'px'}"
   >
     <!-- <div
       v-if="classObj.mobile && sidebar.opened"
@@ -53,6 +54,9 @@ export default defineComponent({
         store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, false)
       }
     })
+    const rect = computed(() => {
+      return store.state.app.rect
+    })
 
     const classObj = computed(() => {
       return {
@@ -82,8 +86,10 @@ export default defineComponent({
     onBeforeUnmount(() => {
       removeEventListenerResize()
     })
+
     return {
       t,
+      rect,
       classObj,
       // sidebar,
       // showSettings,
@@ -99,8 +105,8 @@ export default defineComponent({
 .app-wrapper {
   @include clearfix;
   position: relative;
-  height: 100%;
-  width: 100%;
+  background-color: $dark;
+  color: $defaultTextColor;
 }
 
 // .drawer-bg {

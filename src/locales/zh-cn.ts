@@ -1,8 +1,8 @@
 /*
  * @Description:
  * @Author: Rongxis
- * @Date: 2020-12-28 17:18:24
- * @LastEditors: Rongxis
+ * @ Modified by: Rongxis
+ * @ Modified time: 2023-01-10 21:23:30
  * @LastEditTime: 2021-01-20 15:18:01
  */
 
@@ -81,6 +81,7 @@ export default {
     profile: '个人中心'
   },
   record: {
+    batchDelete: '批量删除',
     web: '网站类型',
     game: '游戏类型',
     hotkey: '配置热键',
