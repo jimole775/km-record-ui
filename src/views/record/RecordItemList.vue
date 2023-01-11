@@ -2,90 +2,133 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-10 23:05:02
+ * @ Modified time: 2023-01-12 00:41:07
  * @ Description:
  -->
 
 <template>
   <div class="wrapper-box">
     <div class="data-wrapper">
-      <el-table
+      <vxe-table
         v-if="list.length"
-        class="data-body"
-        ref="multipleTableRef"
         :data="list"
-        :show-header="false"
+        stripe
         height="200"
-        @row-click="rowClick"
-        @cell-mouse-enter="rowFocus"
-        @cell-mouse-leave="rowBlur"
-        @selection-change="handleSelectionChange"
+        border="none"
+        class="km-vex-table"
+        ref="multipleTableRef"
+        :show-header="false"
+        :row-config="{isHover: true}"
+        :tooltip-config="{}"
+        @cell-mouseenter="rowFocus"
+        @cell-mouseleave="rowBlur"
+        @cell-click="rowClick"
+        @checkbox-change="handleSelectionChange"
       >
-        <el-table-column type="selection" align="center" />
-        <el-table-column prop="name" label="Name" />
-        <el-table-column prop="long" label="Long" />
-        <el-table-column prop="date" label="Date" />
-        <el-table-column prop="opr" label="Opreator">
-          <template #default="scope">
-            <div v-if="scope?.row?.opr">
-              <a>播放</a>
-              <a>删除</a>
-              <a>打开文件夹</a>
+        <vxe-column type="checkbox" width="60" />
+        <vxe-column field="name" title="Name" />
+        <vxe-column field="long" title="Long" />
+        <vxe-column field="date" title="Date" />
+        <vxe-column field="opr" title="Opreator">
+          <template #default="{row}">
+            <div v-if="row.opr" class="row-opr-bar">
+              <a @click.stop="runPlay" class="opr-icon">
+                <SvgIcon name="icon-play3" tip="record.play" font-size="1.1rem" />
+              </a>
+              <a @click.stop="runOpen" class="opr-icon">
+                <SvgIcon name="icon-folder2" tip="record.openDir" font-size="1.1rem" />
+              </a>
+              <a @click.stop="runDelete" class="opr-icon">
+                <SvgIcon name="icon-delete-fill1" tip="record.delete" font-size="1.1rem" />
+              </a>
             </div>
           </template>
-        </el-table-column>
-      </el-table>
+        </vxe-column>
+      </vxe-table>
       <NoData v-else class="data-body" />
     </div>
     <div class="opr-wrapper">
-      <el-button :disabled="!multipleSelection.length">
+      <el-button @click="checkall">
+        {{ t(isCheckedAll ? 'record.cancelall' : 'record.checkall') }}
+      </el-button>
+      <el-button :disabled="!hasSelected">
         {{ t('record.batchDelete') }}
       </el-button>
     </div>
   </div>
 </template>
 <script lang="ts">
-import { defineComponent, toRefs, reactive, ref } from 'vue'
-import { ElTable } from 'element-plus'
 import { useI18n } from 'vue-i18n'
+import { defineComponent, computed, reactive, ref, toRefs } from 'vue'
+import { VxeTableEvents, VxeTableInstance } from 'vxe-table'
 import NoData from '@/components/no-data/Index.vue'
+import SvgIcon from '@/components/svg-icon/Index.vue'
 export default defineComponent({
   components: {
-    NoData
+    NoData,
+    SvgIcon
   },
   setup() {
     const { t } = useI18n()
     const state = reactive({
-      multipleSelection: [],
-      list: [
-        { id: 1, date: '1', name: '2', long: '00:00:12', opr: false },
-        { id: 2, date: '1', name: '2', long: '00:00:12', opr: false },
-        { id: 3, date: '1', name: '2', long: '00:00:12', opr: false },
-        { id: 4, date: '1', name: '2', long: '00:00:12', opr: false },
-        { id: 5, date: '1', name: '2', long: '00:00:12', opr: false },
-        { id: 6, date: '1', name: '2', long: '00:00:12', opr: false }
-      ]
+      isCheckedAll: false,
+      list: (() => {
+        const res = []
+        for (let index = 0; index < 100; index++) {
+          res.push({ id: index, date: 1, name: '2', long: '00:00:12', opr: false })
+        }
+        return res
+      })()
     })
-    const multipleTableRef = ref<InstanceType<typeof ElTable>>()
-    const handleSelectionChange = (val: any) => {
-      state.multipleSelection = val
+    const multipleTableRef = ref<VxeTableInstance>()
+    const handleSelectionChange: VxeTableEvents.CheckboxChange = ({ row }) => {
+      const $table = multipleTableRef.value
+      $table?.toggleCheckboxRow(row)
     }
-    const rowFocus = (row: any) => {
-      const sRow = state.list.find(i => row.id === i.id) || {} as any
-      sRow.opr = true
+    const rowFocus: VxeTableEvents.CellMouseenter = ({ row }) => {
+      console.log('fouces')
+      row.opr = true
     }
-    const rowBlur = (row: any) => {
-      const sRow = state.list.find(i => row.id === i.id) || {} as any
-      sRow.opr = false
+    const rowBlur: VxeTableEvents.CellMouseleave = ({ row }) => {
+      console.log('blur')
+      row.opr = false
     }
-    const rowClick = (row: any) => {
-      const sRow = state.list.find(i => row.id === i.id) || {} as any
-      multipleTableRef?.value?.toggleRowSelection(sRow, undefined)
+    const rowClick: VxeTableEvents.CellClick = ({ row }) => {
+      const $table = multipleTableRef.value
+      $table?.toggleCheckboxRow(row)
     }
+    const runPlay = () => {
+      console.log('runPlay')
+    }
+    const runOpen = () => {
+      console.log('runOpen')
+    }
+    const runDelete = () => {
+      console.log('runDelete')
+    }
+    const checkall = () => {
+      const $table = multipleTableRef.value
+      state.isCheckedAll = !state.isCheckedAll
+      if (state.isCheckedAll) {
+        $table?.setAllCheckboxRow(true)
+      } else {
+        $table?.clearCheckboxRow()
+      }
+    }
+    const hasSelected = computed(() => {
+      const $table = multipleTableRef.value
+      const records = $table?.getCheckboxRecords()
+      return !!(records?.length)
+    })
     return {
       rowBlur,
       rowFocus,
       rowClick,
+      runPlay,
+      runOpen,
+      runDelete,
+      checkall,
+      hasSelected,
       multipleTableRef,
       handleSelectionChange,
       ...toRefs(state),
@@ -112,8 +155,10 @@ export default defineComponent({
       background: none;
       border: 1px solid $lightTextColor;
       font-size: .8rem;
-      margin: 0 1rem;
+      margin-left: 1rem;
       cursor: pointer;
+      padding: 0 1rem;
+      min-height: 1.7rem;
       &:hover {
         background: $lightTextColor;
         color: $dark;
@@ -122,12 +167,29 @@ export default defineComponent({
         background: darken($lightTextColor, 15%);
       }
       &:disabled {
-        cursor: pointer;
+        cursor: default;
         background: none;
-        color: $darkGray;
-        border: 1px solid $darkGray;
+        color: darken($darkGray, 15%);
+        border: 1px solid darken($darkGray, 15%);
       }
     }
   }
 }
+.row-opr-bar {
+  .opr-icon {
+    margin: 0 0.5rem;
+    cursor: pointer;
+    border-radius: 2px;
+    > span {
+      vertical-align: 0;
+    }
+    &:hover {
+      background-color: lighten($dark, 22%);
+    }
+    &:active {
+      background-color: lighten($dark, 18%);
+    }
+  }
+}
+
 </style>

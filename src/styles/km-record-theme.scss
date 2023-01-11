@@ -2,9 +2,16 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:36:05
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-10 21:30:34
+ * @ Modified time: 2023-01-12 00:10:03
  * @ Description:
  */
+// 禁止文本选中
+* {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
 
 .class-item {
   display: flex;
@@ -35,6 +42,7 @@
   }
 }
 
+// element-plus table 的样式主题
 div.el-table {
   &::before {
     background-color: $dark;
@@ -71,4 +79,8 @@ div.el-table {
       }
     }
   }
+}
+
+span.el-checkbox__inner {
+  background: none;
 }

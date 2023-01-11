@@ -5,7 +5,7 @@ export function isDate (src: any) {
   )
 }
 
-export function isArray (likeArray:any): boolean {
+export function isArray (likeArray: any): boolean {
   return Object.prototype.toString.call(likeArray) === '[object Array]'
 }
 

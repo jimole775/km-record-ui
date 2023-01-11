@@ -2,7 +2,7 @@
  * @Description:
  * @Author: Rongxis
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-10 21:23:30
+ * @ Modified time: 2023-01-12 00:40:18
  * @LastEditTime: 2021-01-20 15:18:01
  */
 
@@ -81,6 +81,13 @@ export default {
     profile: '个人中心'
   },
   record: {
+    checkall: '勾选全部',
+    cancelall: '取消全部',
+    play: '播放',
+    rename: '重命名',
+    edit: '编辑',
+    openDir: '打开文件夹',
+    delete: '删除',
     batchDelete: '批量删除',
     web: '网站类型',
     game: '游戏类型',

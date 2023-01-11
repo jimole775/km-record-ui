@@ -1,0 +1,34 @@
+/**
+ * @ Author: Rongxis
+ * @ Create Time: 2023-01-11 22:19:25
+ * @ Modified by: Rongxis
+ * @ Modified time: 2023-01-11 22:22:34
+ * @ Description:
+ */
+
+.km-vex-table {
+  div.vxe-table--body-wrapper {
+    table.vxe-table--body {
+      tbody {
+        tr {
+          td {
+            border-bottom: 0;
+            background-color: $dark;
+            color: $defaultTextColor;
+            padding: 8px 0;
+          }
+          &:hover {
+            td.vxe-body--column {
+              background-color: lighten($dark, 10%);
+            }
+          }
+        }
+        tr.row--stripe {
+          td {
+            background-color: lighten($dark, 5%);
+          }
+        }
+      }
+    }
+  }
+}

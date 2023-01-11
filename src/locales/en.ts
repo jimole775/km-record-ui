@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-07 17:03:24
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-09 22:53:58
+ * @ Modified time: 2023-01-11 22:14:23
  * @ Description:
  */
 
@@ -82,6 +82,13 @@ export default {
     more: 'more'
   },
   record: {
+    checkall: 'check all',
+    cancelall: 'cancel all',
+    play: 'play project',
+    rename: 'rename project',
+    edit: 'edit project',
+    openDir: 'open project dir',
+    delete: 'delete project',
     batchDelete: 'delete',
     web: 'web',
     game: 'game',

@@ -6,7 +6,7 @@
  * @LastEditTime: 2021-01-20 16:59:15
  */
 
-import elementVariables from '@/styles/element-variables.scss'
+// import elementVariables from '@/styles/element-variables.scss'
 import layoutSettings from '@/config/default/layout'
 export interface SettingsState {
   theme: string
@@ -18,7 +18,7 @@ export interface SettingsState {
 }
 
 export const state: SettingsState = {
-  theme: elementVariables.theme,
+  theme: '',
   fixedHeader: layoutSettings.fixedHeader,
   showSettings: layoutSettings.showSettings,
   showTagsView: layoutSettings.showTagsView,

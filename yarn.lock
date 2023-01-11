@@ -10552,6 +10552,105 @@ __metadata:
   languageName: node
   linkType: hard
 
+"km-record-ui@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "km-record-ui@workspace:."
+  dependencies:
+    "@dragndrop/vue-dropzone": 0.0.4
+    "@tinymce/tinymce-vue": ^4.0.0
+    "@types/clipboard": ^2.0.1
+    "@types/faker": ^5.1.5
+    "@types/file-saver": ^2.0.1
+    "@types/jest": ^24.0.19
+    "@types/js-cookie": ^2.2.6
+    "@types/koa": ^2.11.6
+    "@types/koa-logger": ^3.1.1
+    "@types/koa-router": ^7.4.1
+    "@types/koa2-cors": ^2.0.1
+    "@types/lodash": ^4.14.167
+    "@types/node": ^14.14.11
+    "@types/nprogress": ^0.2.0
+    "@types/sortablejs": ^1.10.6
+    "@types/tinymce": ^4.6.0
+    "@typescript-eslint/eslint-plugin": ^2.33.0
+    "@typescript-eslint/parser": ^2.33.0
+    "@vue/cli-plugin-babel": ~4.5.0
+    "@vue/cli-plugin-eslint": ~4.5.0
+    "@vue/cli-plugin-router": ~4.5.0
+    "@vue/cli-plugin-typescript": ~4.5.0
+    "@vue/cli-plugin-unit-jest": ~4.5.0
+    "@vue/cli-plugin-vuex": ~4.5.0
+    "@vue/cli-service": ~4.5.0
+    "@vue/compiler-sfc": ^3.0.0
+    "@vue/eslint-config-standard": ^5.1.2
+    "@vue/eslint-config-typescript": ^5.0.2
+    "@vue/test-utils": ^2.0.0-0
+    axios-mapper: ^0.5.4
+    babel-loader: ^8.2.2
+    chalk: ^4.1.0
+    clipboard: ^2.0.6
+    concurrently: ^5.3.0
+    core-js: ^3.6.5
+    cross-env: ^7.0.3
+    crypto-ts: ^1.0.2
+    dayjs: ^1.10.3
+    dotenv-cli: ^4.0.0
+    driver.js: ^0.9.8
+    echarts: ^5.0.0
+    element-plus: ^1.0.2-beta.35
+    eslint: ^6.7.2
+    eslint-plugin-import: ^2.20.2
+    eslint-plugin-node: ^11.1.0
+    eslint-plugin-promise: ^4.2.1
+    eslint-plugin-standard: ^4.0.0
+    eslint-plugin-vue: ^7.0.0-0
+    faker: ^5.1.0
+    file-saver: ^2.0.5
+    html-docx-js: ^0.3.1
+    js-cookie: ^2.2.1
+    jszip: ^3.5.0
+    koa: ^2.13.0
+    koa-body: ^4.2.0
+    koa-logger: ^3.2.1
+    koa-router: ^10.0.0
+    koa2-cors: ^2.0.6
+    lint-staged: ^9.5.0
+    lodash: ^4.17.20
+    log4js: ^6.3.0
+    moment: ^2.29.1
+    normalize.css: ^8.0.1
+    nprogress: ^0.2.0
+    path-to-regexp: ^6.2.0
+    reflect-metadata: ^0.1.13
+    sass: ^1.26.5
+    sass-loader: ^8.0.2
+    screenfull: ^5.0.2
+    sortablejs: ^1.13.0
+    style-loader: ^2.0.0
+    style-resources-loader: ^1.4.1
+    tinymce: 5.6.2
+    ts-node-dev: ^1.0.0
+    typescript: ~4.0.3
+    vue: 3.0.5
+    vue-class-component: 8.0.0-0
+    vue-cli-plugin-style-resources-loader: ^0.1.4
+    vue-draggable-next: 2.0.1
+    vue-i18n: 9.0.0
+    vue-image-crop-upload: 2.5.0
+    vue-jest: ^5.0.0-alpha.8
+    vue-property-decorator: 9.1.2
+    vue-router: 4.0
+    vue3-count-to: 1.0.7
+    vuex: 4.0.0-0
+    vuex-module-decorators: ^1.0.1
+    vuex-persistedstate: ^4.0.0-beta.1
+    vxe-table: ^4.3.9
+    webpackbar: ^5.0.0-3
+    xe-utils: ^3.5.7
+    xlsx: ^0.16.9
+  languageName: unknown
+  linkType: soft
+
 "koa-body@npm:^4.2.0":
   version: 4.2.0
   resolution: "koa-body@npm:4.2.0"
@@ -16850,103 +16949,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue3-composition-admin@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "vue3-composition-admin@workspace:."
-  dependencies:
-    "@dragndrop/vue-dropzone": 0.0.4
-    "@tinymce/tinymce-vue": ^4.0.0
-    "@types/clipboard": ^2.0.1
-    "@types/faker": ^5.1.5
-    "@types/file-saver": ^2.0.1
-    "@types/jest": ^24.0.19
-    "@types/js-cookie": ^2.2.6
-    "@types/koa": ^2.11.6
-    "@types/koa-logger": ^3.1.1
-    "@types/koa-router": ^7.4.1
-    "@types/koa2-cors": ^2.0.1
-    "@types/lodash": ^4.14.167
-    "@types/node": ^14.14.11
-    "@types/nprogress": ^0.2.0
-    "@types/sortablejs": ^1.10.6
-    "@types/tinymce": ^4.6.0
-    "@typescript-eslint/eslint-plugin": ^2.33.0
-    "@typescript-eslint/parser": ^2.33.0
-    "@vue/cli-plugin-babel": ~4.5.0
-    "@vue/cli-plugin-eslint": ~4.5.0
-    "@vue/cli-plugin-router": ~4.5.0
-    "@vue/cli-plugin-typescript": ~4.5.0
-    "@vue/cli-plugin-unit-jest": ~4.5.0
-    "@vue/cli-plugin-vuex": ~4.5.0
-    "@vue/cli-service": ~4.5.0
-    "@vue/compiler-sfc": ^3.0.0
-    "@vue/eslint-config-standard": ^5.1.2
-    "@vue/eslint-config-typescript": ^5.0.2
-    "@vue/test-utils": ^2.0.0-0
-    axios-mapper: ^0.5.4
-    babel-loader: ^8.2.2
-    chalk: ^4.1.0
-    clipboard: ^2.0.6
-    concurrently: ^5.3.0
-    core-js: ^3.6.5
-    cross-env: ^7.0.3
-    crypto-ts: ^1.0.2
-    dayjs: ^1.10.3
-    dotenv-cli: ^4.0.0
-    driver.js: ^0.9.8
-    echarts: ^5.0.0
-    element-plus: ^1.0.2-beta.35
-    eslint: ^6.7.2
-    eslint-plugin-import: ^2.20.2
-    eslint-plugin-node: ^11.1.0
-    eslint-plugin-promise: ^4.2.1
-    eslint-plugin-standard: ^4.0.0
-    eslint-plugin-vue: ^7.0.0-0
-    faker: ^5.1.0
-    file-saver: ^2.0.5
-    html-docx-js: ^0.3.1
-    js-cookie: ^2.2.1
-    jszip: ^3.5.0
-    koa: ^2.13.0
-    koa-body: ^4.2.0
-    koa-logger: ^3.2.1
-    koa-router: ^10.0.0
-    koa2-cors: ^2.0.6
-    lint-staged: ^9.5.0
-    lodash: ^4.17.20
-    log4js: ^6.3.0
-    moment: ^2.29.1
-    normalize.css: ^8.0.1
-    nprogress: ^0.2.0
-    path-to-regexp: ^6.2.0
-    reflect-metadata: ^0.1.13
-    sass: ^1.26.5
-    sass-loader: ^8.0.2
-    screenfull: ^5.0.2
-    sortablejs: ^1.13.0
-    style-loader: ^2.0.0
-    style-resources-loader: ^1.4.1
-    tinymce: 5.6.2
-    ts-node-dev: ^1.0.0
-    typescript: ~4.0.3
-    vue: 3.0.5
-    vue-class-component: 8.0.0-0
-    vue-cli-plugin-style-resources-loader: ^0.1.4
-    vue-draggable-next: 2.0.1
-    vue-i18n: 9.0.0
-    vue-image-crop-upload: 2.5.0
-    vue-jest: ^5.0.0-alpha.8
-    vue-property-decorator: 9.1.2
-    vue-router: 4.0
-    vue3-count-to: 1.0.7
-    vuex: 4.0.0-0
-    vuex-module-decorators: ^1.0.1
-    vuex-persistedstate: ^4.0.0-beta.1
-    webpackbar: ^5.0.0-3
-    xlsx: ^0.16.9
-  languageName: unknown
-  linkType: soft
-
 "vue3-count-to@npm:1.0.7":
   version: 1.0.7
   resolution: "vue3-count-to@npm:1.0.7"
@@ -17000,6 +17002,16 @@ __metadata:
   peerDependencies:
     vue: ^3.0.2
   checksum: d7c03f0afcbad045ef58921a4baa9ec23bc12c71dbaf1317f1df94e7d8740ce839b9fac48ec775955ce7a8893dceb7217bc05e45421fc6bacc559ed3541e6052
+  languageName: node
+  linkType: hard
+
+"vxe-table@npm:^4.3.9":
+  version: 4.3.9
+  resolution: "vxe-table@npm:4.3.9"
+  peerDependencies:
+    vue: ^3.2.28
+    xe-utils: ^3.5.0
+  checksum: cd85b096cbf6e7f68b9492e1311e4b9fdb9988b50ab3a5c94541ed5ca24c60b47c4fbd3913fe8a017d77a764a887d836a10741b4cbdb56b73b96e7101a9cc2ef
   languageName: node
   linkType: hard
 
@@ -17497,6 +17509,13 @@ __metadata:
     utf-8-validate:
       optional: true
   checksum: 7a17918cd741f6b083e47c04bbd5383066a6f516a80562034b1b4851c345c1702e925d915b3998ca353e7f4b7a5d9544dc1263279abb96fdb99ea10b5a0252d6
+  languageName: node
+  linkType: hard
+
+"xe-utils@npm:^3.5.7":
+  version: 3.5.7
+  resolution: "xe-utils@npm:3.5.7"
+  checksum: bdab6b28425e271f6e9716f83ac47c50cf81f8c64e5fee98131fb5ce31d3a1501d087edf89011f69e400168bb9b9731985c3890dd6e6546ef31ec349e2bb2598
   languageName: node
   linkType: hard
 
