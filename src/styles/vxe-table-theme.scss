@@ -2,11 +2,12 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-11 22:19:25
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-11 22:22:34
+ * @ Modified time: 2023-01-12 23:18:55
  * @ Description:
  */
 
 .km-vex-table {
+  // table背景色修改
   div.vxe-table--body-wrapper {
     table.vxe-table--body {
       tbody {
@@ -31,4 +32,9 @@
       }
     }
   }
+}
+
+// checkbox 的边框变细
+.vxe-table--render-default .vxe-cell--checkbox .vxe-checkbox--icon {
+  font-weight: 400;
 }

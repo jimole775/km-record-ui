@@ -8,7 +8,7 @@
 import { MutationTree } from 'vuex'
 import { AppState, DeviceType, Rect } from './state'
 import { AppMutationTypes } from './mutation-types'
-import { setSidebarStatus, setLanguage, setSize, setRect } from '@/utils/cookies'
+import { setSidebarStatus, setLanguage, setSize } from '@/utils/cookies'
 
 export type Mutations<S = AppState> = {
   [AppMutationTypes.TOGGLE_SIDEBAR](state: S, withoutAnimation: boolean): void
@@ -52,7 +52,7 @@ export const mutations: MutationTree<AppState> & Mutations = {
 
   [AppMutationTypes.SET_RECT](state: AppState, rect: Rect) {
     state.rect = rect
-    setRect(state.rect)
+    // setRect(state.rect)
   }
 
 }

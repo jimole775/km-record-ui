@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-12 00:41:07
+ * @ Modified time: 2023-01-12 23:24:57
  * @ Description:
  -->
 
@@ -34,6 +34,9 @@
             <div v-if="row.opr" class="row-opr-bar">
               <a @click.stop="runPlay" class="opr-icon">
                 <SvgIcon name="icon-play3" tip="record.play" font-size="1.1rem" />
+              </a>
+              <a @click.stop="runEdit" class="opr-icon">
+                <SvgIcon name="icon-cut" tip="record.edit" font-size="1.1rem" />
               </a>
               <a @click.stop="runOpen" class="opr-icon">
                 <SvgIcon name="icon-folder2" tip="record.openDir" font-size="1.1rem" />
@@ -103,6 +106,9 @@ export default defineComponent({
     const runOpen = () => {
       console.log('runOpen')
     }
+    const runEdit = () => {
+      console.log('runEdit')
+    }
     const runDelete = () => {
       console.log('runDelete')
     }
@@ -112,7 +118,7 @@ export default defineComponent({
       if (state.isCheckedAll) {
         $table?.setAllCheckboxRow(true)
       } else {
-        $table?.clearCheckboxRow()
+        $table?.setAllCheckboxRow(false)
       }
     }
     const hasSelected = computed(() => {
@@ -125,6 +131,7 @@ export default defineComponent({
       rowFocus,
       rowClick,
       runPlay,
+      runEdit,
       runOpen,
       runDelete,
       checkall,

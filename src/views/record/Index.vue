@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-10 22:27:56
+ * @ Modified time: 2023-01-12 23:39:37
  * @ Description:
  -->
 
@@ -87,15 +87,14 @@
 <script lang="ts">
 // import { store } from '@/store'
 import { useI18n } from 'vue-i18n'
-import { defineComponent, reactive, toRefs } from 'vue'
+import { defineComponent, defineAsyncComponent, reactive, toRefs } from 'vue'
 import useRect from '@/utils/use_rect'
 import goback from '@/components/goback/Index.vue'
-import RecordItemList from './RecordItemList.vue'
 import { defaultRect } from '@/constant/default_rect'
 export default defineComponent({
   components: {
     goback,
-    RecordItemList
+    RecordItemList: defineAsyncComponent(() => import('./HotkeyConfig.vue'))
   },
   setup() {
     const listHeight = 260

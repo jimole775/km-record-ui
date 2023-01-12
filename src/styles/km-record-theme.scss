@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:36:05
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-12 00:10:03
+ * @ Modified time: 2023-01-12 23:17:01
  * @ Description:
  */
 // 禁止文本选中
@@ -81,6 +81,67 @@ div.el-table {
   }
 }
 
-span.el-checkbox__inner {
-  background: none;
+/**==========================下拉框样式 start======================*/
+$input_border_color: #494949;
+$input_background_color: #242528;
+$input_height: 32px;
+
+.common_dark_theme_select_color {
+  background: $input_background_color;
+  border: 1px solid $input_border_color;
+  color: $defaultTextColor;
 }
+
+.common_dark_theme_select_height {
+  height: $input_height;
+  line-height: $input_height;
+}
+
+// 输入框样式，包括hover样式
+div.el-input.el-input--medium,
+div.el-select {
+  input.el-input__inner {
+    @extend .common_dark_theme_select_color;
+    @extend .common_dark_theme_select_height;
+    &:hover {
+      border: 1px solid $input_border_color;
+      background-color: lighten($input_background_color, 10%);
+    }
+  }
+}
+
+// 输入框的高度调整
+div.el-select,div.el-input {
+  @extend .common_dark_theme_select_height;
+  .el-input__icon {
+    @extend .common_dark_theme_select_height;
+  }
+}
+
+// 输入框 hover 之后，边框保持不变
+div.el-select div.el-input.is-focus input.el-input__inner {
+  border: 1px solid $input_border_color;
+}
+
+// 下拉框样式调整
+div.el-select__popper.el-popper[role=tooltip] {
+  @extend .common_dark_theme_select_color;
+  // 下拉框的箭头样式调整
+  div.el-popper__arrow {
+    &::before {
+      border-top-color: $input_border_color;
+      border-left-color: $input_border_color;
+      background: $input_background_color;
+    }
+  }
+}
+
+// 下拉框 hover 样式调整
+li.el-select-dropdown__item {
+  color: $defaultTextColor;
+  &:hover {
+    background-color: lighten($color: $input_background_color, $amount: 20%);
+  }
+}
+
+/**==========================下拉框样式 end======================*/

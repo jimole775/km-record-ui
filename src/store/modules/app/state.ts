@@ -5,8 +5,9 @@
  * @LastEditors: Rongxis
  * @LastEditTime: 2020-12-23 10:30:35
  */
-import { getSidebarStatus, getSize, getRect } from '@/utils/cookies'
+import { getSidebarStatus, getSize } from '@/utils/cookies'
 import { getLocale } from '@/locales'
+import { defaultRect } from '@/constant/default_rect'
 
 export enum DeviceType {
   Mobile,
@@ -39,5 +40,5 @@ export const state: AppState = {
   },
   language: getLocale(),
   size: getSize() || 'medium',
-  rect: getRect()
+  rect: { w: defaultRect.width, h: defaultRect.height, x: defaultRect.x, y: defaultRect.y }
 }
