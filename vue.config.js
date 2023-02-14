@@ -7,8 +7,8 @@
  */
 const { resolve } = require('path')
 const path = require('path')
-const WebpackBar = require('webpackbar');
 const dayjs = require('dayjs')
+const WebpackBar = require('webpackbar');
 const time = dayjs().format('YYYY-M-D HH:mm:ss')
 process.env.VUE_APP_UPDATE_TIME = time
 const  {
@@ -26,15 +26,23 @@ module.exports = {
   outputDir,
   lintOnSave,
   transpileDependencies,
+  pages: {
+    index: {
+      entry: './src/main'
+    },
+    modal: {
+      entry: './src/modal'
+    }
+  },
   devServer: {
     hot: true,
     port: devPort,
-    open: true,
+    open: false,
     noInfo: false,
     overlay: {
       warnings: true,
       errors: true,
-    },
+    }
   },
   pluginOptions: {
     'style-resources-loader': {
@@ -45,16 +53,16 @@ module.exports = {
       ]
     }
   },
-  configureWebpack(){
+  configureWebpack () {
     return {
-      resolve:{
-        alias:{
-          '@':resolve('src'),
-          '*':resolve(''),
-          'Assets':resolve('src/assets')
+      resolve: {
+        alias: {
+          '@': resolve('src'),
+          '*': resolve(''),
+          'Assets': resolve('src/assets')
         }
       },
-      module:{
+      module: {
         rules: [
           {
             test: /\.(json5?|ya?ml)$/, // target json, json5, yaml and yml files
@@ -62,14 +70,14 @@ module.exports = {
             include: [ // Use `Rule.include` to specify the files of locale messages to be pre-compiled
               path.resolve(__dirname, 'src/lang')
             ]
-          },
-        ],
+          }
+        ]
       },
       plugins:[
         new WebpackBar({
-          name:title,
+          name:title
         })
       ]
     }
-  },
+  }
 }

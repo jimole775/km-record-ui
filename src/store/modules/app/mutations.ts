@@ -1,4 +1,4 @@
-/*
+/**
  * @Description: app Mutations
  * @Author: Rongxis
  * @Date: 2020-12-23 10:25:37
@@ -16,7 +16,6 @@ export type Mutations<S = AppState> = {
   [AppMutationTypes.TOGGLE_DEVICE](state: S, device: DeviceType): void
   [AppMutationTypes.SET_LANGUAGE](state: S, language: string): void
   [AppMutationTypes.SET_SIZE](state: S, size: string): void
-  [AppMutationTypes.SET_RECT](state: S, rect: Rect): void
 }
 
 export const mutations: MutationTree<AppState> & Mutations = {
@@ -48,11 +47,6 @@ export const mutations: MutationTree<AppState> & Mutations = {
   [AppMutationTypes.SET_SIZE](state: AppState, size: string) {
     state.size = size
     setSize(state.size)
-  },
-
-  [AppMutationTypes.SET_RECT](state: AppState, rect: Rect) {
-    state.rect = rect
-    // setRect(state.rect)
   }
 
 }

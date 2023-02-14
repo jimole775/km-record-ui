@@ -2,17 +2,27 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:36:05
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-12 23:17:01
+ * @ Modified time: 2023-02-14 01:46:48
  * @ Description:
  */
 // 禁止文本选中
-* {
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  user-select: none;
+// * {
+//   -moz-user-select: none;
+//   -webkit-user-select: none;
+//   user-select: none;
+// }
+
+button {
+  outline: none;
 }
 
+div.el-input.is-disabled input.el-input__inner {
+  background-color: #1F2024 !important;
+  border-color: #797A7C !important;
+  color: #797A7C !important;
+}
 
+// 大功能模块的按钮样式
 .class-item {
   display: flex;
   flex-direction: column;
@@ -144,4 +154,10 @@ li.el-select-dropdown__item {
   }
 }
 
-/**==========================下拉框样式 end======================*/
+/**========================== 下拉框样式调整 end ======================*/
+
+/**========================== checkbox样式调整 start ======================*/
+.el-checkbox__input.is-checked+span.el-checkbox__label {
+  color: $defaultTextColor;
+}
+/**========================== checkbox样式调整 end ======================*/

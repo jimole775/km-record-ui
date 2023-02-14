@@ -6,6 +6,6 @@
  * @LastEditTime: 2020-12-23 10:08:34
  */
 import i18n from '@/locales'
-export default function loadComponent(app: any) {
+export function loader (app: any) {
   app.use(i18n)
 }

@@ -1,3 +1,11 @@
+/**
+ * @ Author: Rongxis
+ * @ Create Time: 2023-02-13 21:54:12
+ * @ Modified by: Rongxis
+ * @ Modified time: 2023-02-14 00:03:12
+ * @ Description:
+ */
+
 export function isDate (src: any) {
   return Object.prototype.toString.call(src) === '[object String]' && (
     /^\d{4}([-/\\]\d{2}([-/\\]\d{2}( \d{2}:\d{2}:\d{2})?)?)?$/.test(src) ||
@@ -15,6 +23,17 @@ export function isEmptyArray (likeArray: any): boolean {
 
 export function isObject (likeObject: any): boolean {
   return Object.prototype.toString.call(likeObject) === '[object Object]'
+}
+
+export function isJSONString (src: any): boolean {
+  if (isString(src)) {
+    const firstChar = src[0]
+    const lastChar = src[src.length - 1]
+    if ((firstChar === '[' && lastChar === ']') || (firstChar === '{' && lastChar === '}')) {
+      return true
+    }
+  }
+  return false
 }
 
 export function isFunction (likeFunction: any): boolean {

@@ -1,5 +1,15 @@
+/**
+ * @ Author: Rongxis
+ * @ Create Time: 2023-02-13 21:54:12
+ * @ Modified by: Rongxis
+ * @ Modified time: 2023-02-14 01:40:33
+ * @ Description:
+ */
+
 export async function waitBy (condition: () => Promise<any> | any, delay?: number): Promise<any> {
-  let loopTimes = 20
+  const sum = delay || 3000
+  const singleSpend = 150
+  let loopTimes = sum / singleSpend
   const loopEntity = async (loopResolve: Function): Promise<any> => {
     const expection = await condition()
     if (!!expection || loopTimes <= 0) {
@@ -8,7 +18,7 @@ export async function waitBy (condition: () => Promise<any> | any, delay?: numbe
       return setTimeout(() => {
         loopTimes--
         return loopEntity(loopResolve)
-      }, delay || 150)
+      }, singleSpend)
     }
   }
   return new Promise((resolve: Function) => {

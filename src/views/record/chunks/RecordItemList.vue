@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-12 23:24:57
+ * @ Modified time: 2023-02-13 22:20:22
  * @ Description:
  -->
 
@@ -66,6 +66,7 @@ import { defineComponent, computed, reactive, ref, toRefs } from 'vue'
 import { VxeTableEvents, VxeTableInstance } from 'vxe-table'
 import NoData from '@/components/no-data/Index.vue'
 import SvgIcon from '@/components/svg-icon/Index.vue'
+import { parseTime } from '@/utils'
 export default defineComponent({
   components: {
     NoData,
@@ -78,7 +79,7 @@ export default defineComponent({
       list: (() => {
         const res = []
         for (let index = 0; index < 100; index++) {
-          res.push({ id: index, date: 1, name: '2', long: '00:00:12', opr: false })
+          res.push({ id: index, date: parseTime(new Date().getTime()), name: '2', long: '00:00:12', opr: false })
         }
         return res
       })()
@@ -147,10 +148,10 @@ export default defineComponent({
 <style lang="scss" scoped>
 .wrapper-box {
   height: 100%;
+  position: relative;
   .data-wrapper {
     height: 200px;
     overflow: hidden;
-    .data-body {}
   }
   .opr-wrapper {
     height: 60px;
@@ -164,8 +165,7 @@ export default defineComponent({
       font-size: .8rem;
       margin-left: 1rem;
       cursor: pointer;
-      padding: 0 1rem;
-      min-height: 1.7rem;
+      margin: 0 1rem;
       &:hover {
         background: $lightTextColor;
         color: $dark;
@@ -176,8 +176,8 @@ export default defineComponent({
       &:disabled {
         cursor: default;
         background: none;
-        color: darken($darkGray, 15%);
-        border: 1px solid darken($darkGray, 15%);
+        color: $darkGray;
+        border: 1px solid $darkGray;
       }
     }
   }
@@ -195,6 +195,9 @@ export default defineComponent({
     }
     &:active {
       background-color: lighten($dark, 18%);
+    }
+    > span {
+      vertical-align: 0;
     }
   }
 }

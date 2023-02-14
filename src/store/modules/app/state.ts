@@ -1,4 +1,4 @@
-/*
+/**
  * @Description: app state
  * @Author: Rongxis
  * @Date: 2020-12-23 10:25:37
@@ -7,18 +7,10 @@
  */
 import { getSidebarStatus, getSize } from '@/utils/cookies'
 import { getLocale } from '@/locales'
-import { defaultRect } from '@/constant/default_rect'
 
 export enum DeviceType {
   Mobile,
   Desktop,
-}
-
-export interface Rect {
-  w?: number
-  h?: number
-  x?: number
-  y?: number
 }
 
 export interface AppState {
@@ -29,7 +21,6 @@ export interface AppState {
   }
   language: string
   size: string
-  rect: Rect
 }
 
 export const state: AppState = {
@@ -39,6 +30,5 @@ export const state: AppState = {
     withoutAnimation: false
   },
   language: getLocale(),
-  size: getSize() || 'medium',
-  rect: { w: defaultRect.width, h: defaultRect.height, x: defaultRect.x, y: defaultRect.y }
+  size: getSize() || 'medium'
 }

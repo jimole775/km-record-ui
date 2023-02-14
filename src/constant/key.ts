@@ -1,4 +1,4 @@
-/*
+/**
  * @Description:
  * @Author: Rongxis
  * @Date: 2020-12-17 16:06:56
@@ -7,12 +7,15 @@
  */
 
 class Keys {
-  static sidebarStatusKey = 'vue3-typescript-admin-sidebarStatusKey'
-  static languageKey = 'vue3-typescript-admin-languageKey'
-  static sizeKey = 'vue3-typescript-admin-sizeKey'
-  static tokenKey = 'vue3-typescript-admin-access-token'
-  static aseKey = 'vue3-typescript-admin-ase-key'
-  static rectKey = 'vue3-typescript-admin-rect-key'
+  static sidebarStatusKey = 'kmr-admin-sidebarStatusKey'
+  static languageKey = 'kmr-admin-languageKey'
+  static sizeKey = 'kmr-admin-sizeKey'
+  static tokenKey = 'kmr-admin-access-token'
+  static aseKey = 'kmr-admin-ase-key'
+  static clientRectKey = 'kmr-admin-client-rect-key'
+  static modalRectKey = 'kmr-admin-modal-rect-key'
+  static clientDefaultRectKey = 'kmr-admin-default-client-rect-key'
+  static modalDefaultRectKey = 'kmr-admin-default-modal-rect-key'
 }
 
 export default Keys

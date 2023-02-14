@@ -2,71 +2,83 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-07 17:03:24
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-08 02:13:50
+ * @ Modified time: 2023-02-14 22:44:37
  * @ Description:
  */
 
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
+import ModalWrapper from '@/modals/Index.vue'
 
-const constantFiles = require.context('./constantModules', true, /\.ts$/)
-let constantModules: Array<RouteRecordRaw> = []
-constantFiles.keys().forEach((key) => {
+// const constantFiles = require.context('./constantModules', true, /\.ts$/)
+// let constantModules: Array<RouteRecordRaw> = []
+// constantFiles.keys().forEach((key) => {
+//   if (key === './index.ts') return
+//   constantModules = constantModules.concat(constantFiles(key).default)
+// })
+
+// const asyncFiles = require.context('./permissionModules', true, /\.ts$/)
+// let permissionModules: Array<RouteRecordRaw> = []
+// asyncFiles.keys().forEach((key) => {
+//   if (key === './index.ts') return
+//   permissionModules = permissionModules.concat(asyncFiles(key).default)
+// })
+
+const kmrModalFiles = require.context('./kmrModalModules', true, /\.ts$/)
+let kmrModalModules: Array<RouteRecordRaw> = []
+kmrModalFiles.keys().forEach((key) => {
   if (key === './index.ts') return
-  constantModules = constantModules.concat(constantFiles(key).default)
+  kmrModalModules = kmrModalModules.concat(kmrModalFiles(key).default)
 })
 
-const asyncFiles = require.context('./permissionModules', true, /\.ts$/)
-let permissionModules: Array<RouteRecordRaw> = []
-asyncFiles.keys().forEach((key) => {
+const kmrClientFiles = require.context('./kmrClientModules', true, /\.ts$/)
+let kmrClientModules: Array<RouteRecordRaw> = []
+kmrClientFiles.keys().forEach((key) => {
   if (key === './index.ts') return
-  permissionModules = permissionModules.concat(asyncFiles(key).default)
+  kmrClientModules = kmrClientModules.concat(kmrClientFiles(key).default)
 })
 
-const kmFiles = require.context('./kmModules', true, /\.ts$/)
-let kmModules: Array<RouteRecordRaw> = []
-kmFiles.keys().forEach((key) => {
-  if (key === './index.ts') return
-  kmModules = kmModules.concat(kmFiles(key).default)
-})
+export const kmrClientRoutes: Array<RouteRecordRaw> = [
+  {
+    path: '/',
+    redirect: '/home',
+    component: Layout,
+    children: [
+      ...kmrClientModules
+    ]
+  }
+]
 
-export const constantRoutes: Array<RouteRecordRaw> = [
+export const kmrModalRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
     redirect: '/home'
   },
   {
-    path: '/redirect',
-    component: Layout,
-    meta: { hidden: true },
+    path: '/modal',
+    component: ModalWrapper,
     children: [
-      {
-        path: '/redirect/:path(.*)',
-        component: () => import(/* webpackChunkName: "redirect" */ '@/views/redirect/Index.vue')
-      }
+      ...kmrModalModules
     ]
-  },
-  {
-    path: '/home',
-    component: Layout,
-    children: [
-      ...kmModules
-    ]
-  },
-  ...constantModules
+  }
 ]
 
-export const asyncRoutes: Array<RouteRecordRaw> = [
-  ...permissionModules
-]
-const router = createRouter({
+// export const asyncRoutes: Array<RouteRecordRaw> = [
+//   ...permissionModules
+// ]
+export const kmrClientRouter = createRouter({
   history: createWebHashHistory(),
-  routes: constantRoutes
+  routes: kmrClientRoutes
+})
+
+export const kmrModalRouter = createRouter({
+  history: createWebHashHistory(),
+  routes: kmrModalRoutes
 })
 
 export function resetRouter() {
-  const newRouter = router;
-  (router as any).matcher = (newRouter as any).matcher // reset router
+  const newClientRouter = kmrClientRouter
+  const newModalRouter = kmrModalRouter
+  ;(kmrClientRouter as any).matcher = (newClientRouter as any).matcher // reset router
+  ;(kmrModalRouter as any).matcher = (newModalRouter as any).matcher // reset router
 }
-
-export default router

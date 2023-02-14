@@ -14,13 +14,13 @@ import {
 
 // TODO: How to surpass cyclical dependency linting errors cleanly?
 import { RootState } from '@/store'
-import { state, AppState } from './state'
+import { state, KmrState } from './state'
 import { mutations, Mutations } from './mutations'
 import { actions, Actions } from './actions'
 
-export type { AppState }
+export type { KmrState }
 
-export type AppStore<S = AppState> = Omit<VuexStore<S>, 'getters' | 'commit' | 'dispatch'>
+export type KmrStore<S = KmrState> = Omit<VuexStore<S>, 'getters' | 'commit' | 'dispatch'>
 & {
   commit<K extends keyof Mutations, P extends Parameters<Mutations[K]>[1]>(
     key: K,
@@ -34,7 +34,7 @@ export type AppStore<S = AppState> = Omit<VuexStore<S>, 'getters' | 'commit' | '
     options?: DispatchOptions
   ): ReturnType<Actions[K]>
 };
-export const store: Module<AppState, RootState> = {
+export const store: Module<KmrState, RootState> = {
   state,
   mutations,
   actions

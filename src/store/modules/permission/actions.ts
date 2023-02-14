@@ -10,9 +10,9 @@ import { ActionTree, ActionContext } from 'vuex'
 import { RootState } from '@/store'
 import { PermissionState } from './state'
 import { Mutations } from './mutations'
-import { PermissionMutationType } from './mutation-types'
+// import { PermissionMutationType } from './mutation-types'
 import { PermissionActionType } from './action-types'
-import { asyncRoutes } from '@/router'
+// import { asyncRoutes } from '@/router'
 import { RouteRecordRaw } from 'vue-router'
 
 type AugmentedActionContext = {
@@ -55,15 +55,14 @@ export interface Actions {
 }
 
 export const actions: ActionTree<PermissionState, RootState> & Actions = {
-  [PermissionActionType.ACTION_SET_ROUTES](
-    { commit }: AugmentedActionContext
-    , roles: string[]) {
-    let accessedRoutes
-    if (roles.includes('admin')) {
-      accessedRoutes = asyncRoutes
-    } else {
-      accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
-    }
-    commit(PermissionMutationType.SET_ROUTES, accessedRoutes)
+  [PermissionActionType.ACTION_SET_ROUTES]({ commit }: AugmentedActionContext, roles: string[]) {
+    console.log(commit, roles)
+    // let accessedRoutes
+    // if (roles.includes('admin')) {
+    //   accessedRoutes = asyncRoutes
+    // } else {
+    //   accessedRoutes = filterAsyncRoutes(asyncRoutes, roles)
+    // }
+    // commit(PermissionMutationType.SET_ROUTES, accessedRoutes)
   }
 }

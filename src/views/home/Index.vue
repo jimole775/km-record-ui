@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-08 02:08:41
+ * @ Modified time: 2023-02-13 22:15:01
  * @ Description:
  -->
 
@@ -68,22 +68,22 @@
 <script lang="ts">
 import { reactive, defineComponent, toRefs } from 'vue'
 import { useI18n } from 'vue-i18n'
-import router from '@/router'
+import { kmrClientRouter } from '@/router'
 export default defineComponent({
   setup() {
     const { t } = useI18n()
     const state = reactive({
       toRecord() {
-        router.push('/record')
+        kmrClientRouter.push('/record')
       },
       toPlay() {
-        router.push('/play')
+        // kmrClientRouter.push('/play')
       },
       toConfig() {
-        router.push('/config')
+        // kmrClientRouter.push('/config')
       },
       toMore() {
-        router.push('/more')
+        // kmrClientRouter.push('/more')
       }
     })
     return {

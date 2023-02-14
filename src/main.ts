@@ -5,19 +5,23 @@
  * @LastEditors: Rongxis
  * @LastEditTime: 2021-01-27 19:20:07
  */
-import { createApp, Directive } from 'vue'
 import App from './App.vue'
 // import './pwa/registerServiceWorker'
-import router from './router'
 import { store } from './store'
+import { kmrClientRouter } from './router'
 import { loadAllPlugins } from './plugins'
+import { createApp, Directive } from 'vue'
+import * as directives from '@/directives'
 import VXETable from 'vxe-table'
 import 'vxe-table/lib/style.css'
 import '@/assets/iconfont/iconfont.css'
 import '@/styles/index.scss'
 import 'normalize.css'
-import * as directives from '@/directives'
-// import '@/permission'
+import webview from './plugins/webview'
+
+webview.expose('store', store)
+webview.expose('router', kmrClientRouter)
+
 const app = createApp(App)
 // 加载所有插件
 loadAllPlugins(app)
@@ -29,4 +33,4 @@ Object.keys(directives).forEach(key => {
   app.directive(key, (directives as { [key: string ]: Directive })[key])
 })
 
-app.use(store).use(router).use(VXETable).mount('#app')
+app.use(store).use(kmrClientRouter).use(VXETable).mount('#app')
