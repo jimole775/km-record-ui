@@ -11,14 +11,14 @@
     <svg
       class="icon"
       aria-hidden="true"
-      :font-size="fontSize"
+      :style="{fontSize}"
       @mouseenter="showTip = true"
       @mouseleave="showTip = false"
     >
       <use :xlink:href="'#' + name" />
     </svg>
     <div
-      v-if="showTip"
+      v-if="showTip && tip"
       role="tooltip"
       aria-hidden="false"
       class="svg-icon-popper svg-icon-dark"

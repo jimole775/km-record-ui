@@ -7,9 +7,8 @@
 -->
 <template>
   <div
-    class="app-wrapper"
     :class="classObj"
-    :style="{width: rect.w + 'px', height: rect.h + 'px'}"
+    class="app-wrapper"
   >
     <!-- <div
       v-if="classObj.mobile && sidebar.opened"
@@ -27,6 +26,7 @@
         <Settings />
       </RightPanel> -->
     </div>
+    <div v-show="freezing" class="kmr-cover" />
   </div>
 </template>
 
@@ -64,6 +64,9 @@ export default defineComponent({
       }
     })
 
+    const freezing = computed(() => {
+      return store.state.kmr.client.freezing
+    })
     // const showSettings = computed(() => {
     //   return store.state.settings.showSettings
     // })
@@ -91,6 +94,7 @@ export default defineComponent({
       t,
       rect,
       classObj,
+      freezing,
       // sidebar,
       // showSettings,
       // showTagsView,
@@ -107,6 +111,7 @@ export default defineComponent({
   position: relative;
   background-color: $dark;
   color: $defaultTextColor;
+  height: inherit;
 }
 
 // .drawer-bg {
@@ -142,6 +147,17 @@ export default defineComponent({
   .fixed-header {
     width: 100%;
   }
+}
+
+.kmr-cover {
+  text-align: center;
+  z-index: 99999;
+  background-color: rgba(0,0,0,0);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 }
 
 </style>

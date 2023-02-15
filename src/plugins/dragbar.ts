@@ -2,12 +2,12 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-02-14 22:47:04
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-14 23:18:55
+ * @ Modified time: 2023-02-15 23:09:13
  * @ Description:
  */
 
 import webview from './webview'
-export type DragHandlerInterface = {
+export type DragbarInterface = {
   target: HTMLElement
   mount: (selector: string) => any
   unmount: () => any
@@ -15,7 +15,7 @@ export type DragHandlerInterface = {
   dragend: (event: MouseEvent) => any
 }
 
-class DragHandler implements DragHandlerInterface {
+class Dragbar implements DragbarInterface {
   target = {} as HTMLElement
   mount (selector: string): any {
     this.target = document.querySelector(selector) as HTMLElement
@@ -23,8 +23,8 @@ class DragHandler implements DragHandlerInterface {
       return setTimeout(() => this.mount(selector), 150)
     }
     this.target.draggable = true
-    this.target.addEventListener('dragstart', this.dragstart)
-    this.target.addEventListener('dragend', this.dragend)
+    this.target.addEventListener('dragstart', this.dragstart.bind(this))
+    this.target.addEventListener('dragend', this.dragend.bind(this))
     return null
   }
   unmount () {
@@ -44,7 +44,7 @@ class DragHandler implements DragHandlerInterface {
 
 export function loader () {
   setTimeout(() => {
-    const draghandler = new DragHandler()
-    draghandler.mount('.navbar')
+    const dragbar = new Dragbar()
+    dragbar.mount('.navbar')
   })
 }

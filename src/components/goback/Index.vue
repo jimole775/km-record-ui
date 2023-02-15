@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 00:28:59
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-10 22:20:10
+ * @ Modified time: 2023-02-15 22:14:00
  * @ Description:
  -->
 <template>
@@ -21,16 +21,14 @@
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
-import router from '@/router'
-import useRect from '@/utils/use_rect'
-import { defaultRect } from '@/constant/default_rect'
+import { kmrClientRouter } from '@/router'
+import { setWH } from '@/utils/client_rect'
+import { getClientDefaultRect } from '@/utils/cookies'
 export default defineComponent({
   setup() {
     const goback = () => {
-      const w = defaultRect.width
-      const h = defaultRect.height
-      useRect({ w, h })
-      router.go(-1)
+      setWH(getClientDefaultRect())
+      kmrClientRouter.go(-1)
     }
     return { goback }
   }
