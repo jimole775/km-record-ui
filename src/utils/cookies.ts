@@ -9,6 +9,10 @@ import Cookies from 'js-cookie'
 import Keys from '@/constant/key'
 import { Rect } from '@/store/modules/kmr/state'
 
+function json2obj (str = '{}') {
+  return JSON.parse(str)
+}
+
 export const getSidebarStatus = () => Cookies.get(Keys.sidebarStatusKey)
 export const setSidebarStatus = (sidebarStatus: string) => Cookies.set(Keys.sidebarStatusKey, sidebarStatus)
 
@@ -19,22 +23,16 @@ export const getSize = () => Cookies.get(Keys.sizeKey)
 export const setSize = (size: string) => Cookies.set(Keys.sizeKey, size)
 
 export const setClientRect = (rect: Rect) => Cookies.set(Keys.clientRectKey, rect || '')
-export const getClientRect = () => {
-  const val = Cookies.get(Keys.clientRectKey) || '{}'
-  return JSON.parse(val)
-}
 
 export const setModalDefaultRect = (rect: Rect) => Cookies.set(Keys.modalDefaultRectKey, rect || '')
-export const getModalDefaultRect = () => {
-  const val = Cookies.get(Keys.modalDefaultRectKey) || '{}'
-  return JSON.parse(val)
-}
 
 export const setClientDefaultRect = (rect: Rect) => Cookies.set(Keys.clientDefaultRectKey, rect || '')
-export const getClientDefaultRect = () => {
-  const val = Cookies.get(Keys.clientDefaultRectKey) || '{}'
-  return JSON.parse(val)
-}
+
+export const getClientRect = () => json2obj(Cookies.get(Keys.clientRectKey))
+
+export const getModalDefaultRect = () => json2obj(Cookies.get(Keys.modalDefaultRectKey))
+
+export const getClientDefaultRect = () => json2obj(Cookies.get(Keys.clientDefaultRectKey))
 
 export const getToken = () => Cookies.get(Keys.tokenKey)
 export const setToken = (token: string) => Cookies.set(Keys.tokenKey, token)

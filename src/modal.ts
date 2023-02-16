@@ -6,7 +6,6 @@
  * @LastEditTime: 2021-01-27 19:20:07
  */
 import App from './App.vue'
-import router from './router'
 import { store } from './store'
 import { createApp } from 'vue'
 import { kmrModalRouter } from './router'

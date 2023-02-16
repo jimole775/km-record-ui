@@ -2,11 +2,11 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-15 22:56:25
+ * @ Modified time: 2023-02-16 00:30:50
  * @ Description:
  -->
 
- <template>
+<template>
   <div class="hotkey-config">
     <el-row
       class="hotkey-config-row"

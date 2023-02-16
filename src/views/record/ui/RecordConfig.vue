@@ -2,11 +2,11 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-13 23:08:05
+ * @ Modified time: 2023-02-16 00:26:27
  * @ Description:
  -->
 
- <template>
+<template>
   <div>
     <a class="back"><goback /></a>
     <el-row
@@ -99,18 +99,17 @@ import { useI18n } from 'vue-i18n'
 import { setWH } from '@/utils/client_rect'
 import { getClientDefaultRect } from '@/utils/cookies'
 import { KmrActionTypes } from '@/store/modules/kmr/action-types'
-import { defineComponent, defineAsyncComponent, reactive, toRefs } from 'vue'
+import { defineComponent, defineAsyncComponent, ref, computed } from 'vue'
 import goback from '@/components/goback/Index.vue'
 import SvgIcon from '@/components/svg-icon/Index.vue'
 import webview from '@/plugins/webview'
 
-let switchSignRecord: boolean = false
-
+let switchSignRecord = false
 export default defineComponent({
   components: {
     goback,
     SvgIcon,
-    RecordItemList: defineAsyncComponent(() => import('./chunks/RecordItemList.vue'))
+    RecordItemList: defineAsyncComponent(() => import('../chunks/RecordItemList.vue'))
   },
   setup() {
     const listHeight = 260

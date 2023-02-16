@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-02-15 22:23:22
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-15 22:40:50
+ * @ Modified time: 2023-02-16 00:35:00
  * @ Description: 使用 input 来接收键盘的输入
  -->
 
@@ -20,6 +20,7 @@ import monitor from '@/plugins/keyboard'
 import { defineComponent, reactive, toRefs } from 'vue'
 
 export default defineComponent({
+  emits: ['model:value'],
   setup(props, { attrs, emit }) {
     const state = reactive({
       isFocus: false,

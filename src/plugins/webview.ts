@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-02-14 23:35:14
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-14 23:46:13
+ * @ Modified time: 2023-02-16 22:22:41
  * @ Description:
  */
 
@@ -22,6 +22,7 @@ webview.call = async (funName: string, params?: any[]): Promise<any> => {
   try {
     await waitBy(() => !!window.pywebview)
     const fun = window.pywebview?.api[funName]
+    console.log(`webview function "${funName}" has be calling by is! params: ${params?.toString()}`)
     fun?.apply(null, params || [])
   } catch (error) {
     console.log(error)

@@ -33,11 +33,11 @@ export type KmrState = {
     step: number
     state: RecState
     hitself: Coordinate[]
-  },
+  }
   client: {
     freezing: boolean
     rect: Rect
-  },
+  }
   modal: {
     rect: Rect
   }
@@ -48,7 +48,7 @@ export const state: KmrState = {
     state: {
       idle: true,
       working: false,
-      paused: false,
+      paused: false
     },
     hitself: [],
     step: 0

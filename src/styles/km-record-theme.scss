@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:36:05
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-14 01:46:48
+ * @ Modified time: 2023-02-16 00:53:58
  * @ Description:
  */
 // 禁止文本选中
@@ -75,15 +75,15 @@ div.el-table {
     table.el-table__body {
       tbody {
         tr {
-          &:hover {
-            td {
-              background-color: lighten($dark, 10%);
-            }
-          }
           td {
             border-bottom: 0;
             background-color: $dark;
             color: $defaultTextColor;
+          }
+          &:hover {
+            td {
+              background-color: lighten($dark, 10%);
+            }
           }
         }
       }
@@ -136,13 +136,14 @@ div.el-select div.el-input.is-focus input.el-input__inner {
 // 下拉框样式调整
 div.el-select__popper.el-popper[role=tooltip] {
   @extend .common_dark_theme_select_color;
-  // 下拉框的箭头样式调整
-  div.el-popper__arrow {
-    &::before {
-      border-top-color: $input_border_color;
-      border-left-color: $input_border_color;
-      background: $input_background_color;
-    }
+}
+
+// 下拉框的箭头样式调整
+div.el-popper__popper.el_popper[role=tooltip] dive.el-popper__arrow {
+  &::before {
+    border-top-color: $input_border_color;
+    border-left-color: $input_border_color;
+    background: $input_background_color !important;
   }
 }
 

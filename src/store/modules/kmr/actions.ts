@@ -9,7 +9,7 @@ import { ActionTree, ActionContext } from 'vuex'
 
 // eslint-disable-next-line import/no-cycle
 import { RootState } from '@/store'
-import { KmrState, Coordniate, Rect } from './state'
+import { KmrState, Coordinate, Rect } from './state'
 import { Mutations } from './mutations'
 import { KmrMutationTypes } from './mutation-types'
 import { KmrActionTypes } from './action-types'
@@ -47,7 +47,7 @@ export interface Actions {
   ): void
   [KmrActionTypes.ACTION_ADD_RECORD_HIT_SELF](
     { commit }: AugmentedActionContext,
-    step: number
+    coord: Coordinate
   ): void
 }
 
@@ -79,7 +79,7 @@ export const actions: ActionTree<KmrState, RootState> & Actions = {
       paused: false
     })
   },
-  [KmrActionTypes.ACTION_ADD_RECORD_HIT_SELF]({ commit }, coord: Coordniate) {
+  [KmrActionTypes.ACTION_ADD_RECORD_HIT_SELF]({ commit }, coord: Coordinate) {
     commit(KmrMutationTypes.ADD_RECORD_HIT_SELF, coord)
   },
   [KmrActionTypes.ACTION_SET_CLIENT_FREEZING]({ commit }, flag: boolean) {

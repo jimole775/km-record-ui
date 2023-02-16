@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-02-13 21:54:12
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-14 00:03:12
+ * @ Modified time: 2023-02-16 22:37:03
  * @ Description:
  */
 
@@ -26,7 +26,7 @@ export function isObject (likeObject: any): boolean {
 }
 
 export function isJSONString (src: any): boolean {
-  if (isString(src)) {
+  if (Object.prototype.toString.call(src) === '[object String]') {
     const firstChar = src[0]
     const lastChar = src[src.length - 1]
     if ((firstChar === '[' && lastChar === ']') || (firstChar === '{' && lastChar === '}')) {
@@ -87,5 +87,9 @@ export function isJSUrl (src: any): boolean {
 }
 
 export function rangeEqual (a = 0, b = 0, range = 0): boolean {
+  return (a >= b && a <= b + range) || (a <= b && a + range >= b)
+}
+
+export function rangeRateEqual (a = 0, b = 0, range = 0): boolean {
   return (a >= b && a <= b * (1 + range)) || (a <= b && a * (1 + range) >= b)
 }

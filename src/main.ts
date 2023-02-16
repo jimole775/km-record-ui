@@ -7,21 +7,21 @@
  */
 import App from './App.vue'
 // import './pwa/registerServiceWorker'
-import { store } from './store'
 import { kmrClientRouter } from './router'
-import { loadAllPlugins } from './plugins'
-import { createApp, Directive } from 'vue'
-import * as directives from '@/directives'
+import { store } from './store'
 import VXETable from 'vxe-table'
+import { createApp, Directive } from 'vue'
 import 'vxe-table/lib/style.css'
 import '@/assets/iconfont/iconfont.css'
 import '@/styles/index.scss'
 import 'normalize.css'
+import { loadAllPlugins } from './plugins'
+import * as directives from '@/directives'
 import webview from './plugins/webview'
 
 webview.expose('store', store)
 webview.expose('router', kmrClientRouter)
-
+webview.call('init_modal')
 const app = createApp(App)
 // 加载所有插件
 loadAllPlugins(app)

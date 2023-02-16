@@ -1,49 +1,60 @@
 ;(function () {
-  var cache = {}
-  var win = window
-  var doc = document
-  var expose = function (name, value) {
-    var kmrObject = window.__kmr__ || {}
-    kmrObject[name] = value
+  const cache = {}
+  const win = window
+  const doc = document
+  const expose = function (name, data) {
+    const kmrObject = window.__kmr__ || {}
+    kmrObject[name] = data
     win.__kmr__ = kmrObject
-  };
-  var wait = function (name) {
+  }
+  const wait = function (name) {
     function loop (r) {
       if (cache[name]) {
-        r(cache[name]);
+        r(cache[name])
       } else {
         if (!window.__kmr__) {
           setTimeout(() => {
-            return loop(r);
+            return loop(r)
           }, 45)
         } else {
-          cache[name] = win.__kmr__[name];
-          return r(cache[name]);
+          cache[name] = win.__kmr__[name]
+          return r(cache[name])
         }
       }
     }
-    return new Promise(loop);
-  };
-  var methods = {
+    return new Promise(loop)
+  }
+  const methods = {
+    default_size (w, h) {
+      methods.resize(w, h)
+      wait('store').then((_store) => {
+        _store.dispatch('ACTION_SET_CLIENT_RECT', { w, h })
+      })
+    },
     resize (w, h) {
-      w = w ? w : 0;
-      h = h ? h : 0;
-      doc.documentElement.style.width = w + 'px';
-      doc.documentElement.style.height = h + 'px';
+      w = w || 0
+      h = h || 0
+      doc.documentElement.style.width = w + 'px'
+      doc.documentElement.style.height = h + 'px'
     },
     send_data (data) {
       Object.keys(data).forEach((key) => {
-        var val = data[key];
+        const val = data[key]
         if (Object.prototype.toString.call(val) === '[object Object]') {
-          win.sessionStorage[key] = JSON.stringify(val);
+          win.sessionStorage[key] = JSON.stringify(val)
         } else {
-          win.sessionStorage[key] = val;
+          win.sessionStorage[key] = val
         }
       })
     },
     update_step (step) {
       wait('store').then((_store) => {
-        _store.dispatch('ACTION_SET_RECORD_STEP', step);
+        _store.dispatch('ACTION_SET_RECORD_STEP', step)
+      })
+    },
+    update_state (flag) {
+      wait('store').then((_store) => {
+        _store.dispatch('ACTION_SET_CLIENT_FREEZING', flag)
       })
     },
     modal_route (route_name) {
@@ -51,6 +62,6 @@
         _router.push({ path: route_name })
       })
     }
-  };
+  }
   expose('methods', methods)
-})();
+})()

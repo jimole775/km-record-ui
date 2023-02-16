@@ -2,12 +2,9 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-02-14 23:21:23
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-14 23:34:50
+ * @ Modified time: 2023-02-16 00:30:01
  * @ Description:
  */
-
-import { call } from "./platform"
-
 type KeyboardEventListener = (kvt: KeyboardEvent) => any
 
 interface MonitorAPI {
@@ -34,19 +31,22 @@ class Monitor implements MonitorAPI {
   isMounted = false
 
   mount (callback = defaultEventListener) {
-    if (this.isMounted === true) return false 
+    if (this.isMounted === true) return false
     this.handlerMap[handlerSymbol as string] = callback
     window.addEventListener('keydown', this.handlerMap[handlerSymbol as string])
     this.isMounted = true
   }
+
   forceMount (callback = defaultEventListener) {
     this.unmount()
     this.mount(callback)
   }
+
   unmount () {
     window.removeEventListener('keydown', this.handlerMap[handlerSymbol as string])
     this.isMounted = false
   }
+
   getEvent () {
     return this.event
   }

@@ -38,10 +38,7 @@ export const store = createStore({
   modules: {
     app,
     kmr,
-    settings,
-    // permission,
-    // user,
-    // tagViews
+    settings
   }
 })
 

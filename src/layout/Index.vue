@@ -54,18 +54,11 @@ export default defineComponent({
         store.dispatch(AppActionTypes.ACTION_CLOSE_SIDEBAR, false)
       }
     })
-    const rect = computed(() => {
-      return store.state.app.rect
-    })
 
     const classObj = computed(() => {
       return {
         mobile: device.value === DeviceType.Mobile
       }
-    })
-
-    const freezing = computed(() => {
-      return store.state.kmr.client.freezing
     })
     // const showSettings = computed(() => {
     //   return store.state.settings.showSettings
@@ -75,6 +68,10 @@ export default defineComponent({
     // })
     const fixedHeader = computed(() => {
       return store.state.settings.fixedHeader
+    })
+
+    const freezing = computed(() => {
+      return store.state.kmr.client.freezing
     })
 
     watchRouter()
@@ -92,7 +89,6 @@ export default defineComponent({
 
     return {
       t,
-      rect,
       classObj,
       freezing,
       // sidebar,
@@ -159,5 +155,4 @@ export default defineComponent({
   left: 0;
   bottom: 0;
 }
-
 </style>

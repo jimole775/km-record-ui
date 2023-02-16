@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-13 23:45:17
+ * @ Modified time: 2023-02-16 00:23:31
  * @ Description:
  -->
 
@@ -41,7 +41,7 @@
 <script lang="ts">
 import { useI18n } from 'vue-i18n'
 import { useStore } from '@/store'
-import Stopwatch from '../chuns/Stopwatch.vue'
+import Stopwatch from '../chunks/Stopwatch.vue'
 import SvgIcon from '@/components/svg-icon/Index.vue'
 import { KmrActionTypes } from '@/store/modules/kmr/action-types'
 import { defineComponent, computed, toRefs, reactive } from 'vue'

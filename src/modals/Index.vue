@@ -2,11 +2,11 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-15 23:00:29
+ * @ Modified time: 2023-02-16 00:30:41
  * @ Description:
  -->
 
- <template>
+<template>
   <div class="app-main">
     <transition
       name="fade-transform"
@@ -40,6 +40,6 @@ export default defineComponent({
   width: 100%;
   position: relative;
   overflow: hidden;
-  height: cacal(100% - 50px);
+  height: calc(100% - 50px);
 }
 </style>

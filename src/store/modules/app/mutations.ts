@@ -6,7 +6,7 @@
  * @LastEditTime: 2020-12-24 09:55:30
  */
 import { MutationTree } from 'vuex'
-import { AppState, DeviceType, Rect } from './state'
+import { AppState, DeviceType } from './state'
 import { AppMutationTypes } from './mutation-types'
 import { setSidebarStatus, setLanguage, setSize } from '@/utils/cookies'
 

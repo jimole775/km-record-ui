@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-13 22:39:06
+ * @ Modified time: 2023-02-16 00:36:23
  * @ Description:
  -->
 
@@ -14,6 +14,7 @@
 <script lang="ts">
 import { defineComponent, computed, watch, ref, onUnmounted } from 'vue'
 export default defineComponent({
+  emits: ['update:modelValue'],
   props: {
     paused: {
       type: Boolean,
@@ -66,7 +67,7 @@ export default defineComponent({
         const ms = str.substring(str.length - 3, str.length)
         clockWalkingDivid = 1000 - parseInt(ms)
       }
-    }, { imediate: true })
+    }, { immediate: true })
     onUnmounted(() => {
       console.log('comp is unmount')
       clearTimeout(clockWalkingHandler)
