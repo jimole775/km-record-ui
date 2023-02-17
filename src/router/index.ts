@@ -2,11 +2,11 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-07 17:03:24
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-14 22:44:37
+ * @ Modified time: 2023-02-18 00:32:24
  * @ Description:
  */
 
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Layout from '@/layout/Index.vue'
 import ModalWrapper from '@/modals/Index.vue'
 
@@ -52,7 +52,7 @@ export const kmrClientRoutes: Array<RouteRecordRaw> = [
 export const kmrModalRoutes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/modal'
   },
   {
     path: '/modal',
@@ -67,12 +67,12 @@ export const kmrModalRoutes: Array<RouteRecordRaw> = [
 //   ...permissionModules
 // ]
 export const kmrClientRouter = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: kmrClientRoutes
 })
 
 export const kmrModalRouter = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes: kmrModalRoutes
 })
 
