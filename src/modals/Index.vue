@@ -2,12 +2,13 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-18 01:42:41
+ * @ Modified time: 2023-02-19 04:36:32
  * @ Description:
  -->
 
 <template>
   <div class="app-main">
+    <Header />
     <transition
       name="fade-transform"
       mode="out-in"
@@ -21,7 +22,11 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import Header from './Header.vue'
 export default defineComponent({
+  components: {
+    Header
+  },
   setup() {
     const route = useRoute()
     const router = useRouter()

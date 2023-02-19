@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-02-14 22:47:04
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-17 00:49:05
+ * @ Modified time: 2023-02-19 03:55:02
  * @ Description:
  */
 
@@ -39,6 +39,8 @@ class Dragbar implements DragbarInterface {
 
   mousedown (event: Event) {
     const evt: MouseEvent = event as MouseEvent
+    const target: HTMLElement = evt.target as HTMLElement
+    if (['use', 'svg', 'a', 'button', 'input'].includes(target.nodeName)) return false
     this.ispressed = true
     this.startx = evt.x
     this.starty = evt.y

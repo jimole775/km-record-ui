@@ -25,7 +25,7 @@
     return new Promise(loop)
   }
   const methods = {
-    default_size (w, h) {
+    default_html_size (w, h) {
       methods.resize(w, h)
       wait('store').then((_store) => {
         _store.dispatch('ACTION_SET_CLIENT_RECT', { w, h })
@@ -34,6 +34,7 @@
     resize (w, h) {
       w = w || 0
       h = h || 0
+      console.log('resize', w, h)
       doc.documentElement.style.width = w + 'px'
       doc.documentElement.style.height = h + 'px'
     },

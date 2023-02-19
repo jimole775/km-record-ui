@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 00:47:43
  * @ Modified by: Rongxis
- * @ Modified time: 2023-01-08 02:29:23
+ * @ Modified time: 2023-02-19 04:09:01
  * @ Description:
  -->
 
@@ -38,7 +38,6 @@ export default defineComponent({
   color: #fff;
   height: 50px;
   line-height: 50px;
-  padding: 0 1rem;
   svg {
     vertical-align: -0.25em;
     margin: 0 0.2em;

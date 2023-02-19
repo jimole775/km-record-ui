@@ -193,21 +193,21 @@ export default defineComponent({
   color: #fff;
   cursor: pointer;
 }
-.list-icon {
-  color: #fff;
-  line-height: 40px;
-  border-radius: 2px;
-  cursor: pointer;
-  margin: 0 0.5rem;
-  padding: 0 2px;
-  &:hover {
-    background-color: #333;
-  }
-}
 .foot-bar {
   .opr-bar {
     margin: 0 3px;
     border-top: 1px solid #030303;
+    .list-icon {
+      color: #fff;
+      line-height: 40px;
+      border-radius: 2px;
+      cursor: pointer;
+      margin: 0 0.5rem;
+      padding: 0 2px;
+      &:hover {
+        background-color: #333;
+      }
+    }
   }
   .data-bar {}
 }
