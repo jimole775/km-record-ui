@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-16 00:23:31
+ * @ Modified time: 2023-02-20 22:21:44
  * @ Description:
  -->
 
@@ -58,7 +58,7 @@ export default defineComponent({
     const step = computed(() => store.state.kmr.record.step)
     const state = reactive({
       costTime: 0,
-      runPasuse () {
+      runPause () {
         if (paused.value) {
           store.dispatch(KmrActionTypes.ACTION_SET_RECORD_START, undefined)
         } else {

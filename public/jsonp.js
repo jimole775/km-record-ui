@@ -25,10 +25,16 @@
     return new Promise(loop)
   }
   const methods = {
-    default_html_size (w, h) {
+    default_client_size (w, h) {
       methods.resize(w, h)
       wait('store').then((_store) => {
         _store.dispatch('ACTION_SET_CLIENT_RECT', { w, h })
+      })
+    },
+    default_modal_size (w, h) {
+      methods.resize(w, h)
+      wait('store').then((_store) => {
+        _store.dispatch('ACTION_SET_MODAL_RECT', { w, h })
       })
     },
     resize (w, h) {
