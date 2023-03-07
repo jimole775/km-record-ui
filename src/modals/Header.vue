@@ -32,4 +32,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+// .navbar {
+//   height: 50px;
+//   overflow: hidden;
+//   position: relative;
+//   background: #25272E;
+//   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+
+//   .right-menu {
+//     float: right;
+//     height: 100%;
+//     line-height: 50px;
+
+//     &:focus {
+//       outline: none;
+//     }
+
+//   }
+// }
 </style>

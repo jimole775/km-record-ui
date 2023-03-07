@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:36:05
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-16 00:53:58
+ * @ Modified time: 2023-03-07 23:39:31
  * @ Description:
  */
 // 禁止文本选中
@@ -139,12 +139,10 @@ div.el-select__popper.el-popper[role=tooltip] {
 }
 
 // 下拉框的箭头样式调整
-div.el-popper__popper.el_popper[role=tooltip] dive.el-popper__arrow {
-  &::before {
-    border-top-color: $input_border_color;
-    border-left-color: $input_border_color;
-    background: $input_background_color !important;
-  }
+.el-popper__arrow::before {
+  border-top-color: $input_border_color !important;
+  border-left-color: $input_border_color !important;
+  background: $input_background_color !important;
 }
 
 // 下拉框 hover 样式调整

@@ -35,7 +35,9 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .navbar {
+  color: #d2d2d2;
   height: 50px;
+  line-height: 50px;
   overflow: hidden;
   position: relative;
   background: #25272E;

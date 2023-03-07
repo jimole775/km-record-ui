@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-16 00:26:27
+ * @ Modified time: 2023-03-07 01:54:53
  * @ Description:
  -->
 
@@ -40,7 +40,7 @@
         <div class="class-item">
           <button
             class="asst-bar-position"
-            :class="isGameRecord ? 'class-item-button-checkbox' : ''"
+            :class="isGameRecord ? 'class-item-button-checked' : ''"
             @click.capture="checkToGame"
           >
             <SvgIcon name="icon-game" font-size="2.4rem" />
@@ -114,7 +114,7 @@ export default defineComponent({
   setup() {
     const listHeight = 260
     const { t } = useI18n()
-    const { h } = getClientDefaultRect()
+    const { h = 0 } = getClientDefaultRect()
     const store = useStore()
     const switchSign = ref(switchSignRecord)
     const isWebRecord = ref(true)

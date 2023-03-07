@@ -6,7 +6,7 @@
  * @LastEditTime: 2020-12-23 14:29:18
  */
 import { ActionTree, ActionContext } from 'vuex'
-
+import { isNumber } from '@/utils/assert'
 // eslint-disable-next-line import/no-cycle
 import { RootState } from '@/store'
 import { KmrState, Coordinate, Rect } from './state'
@@ -53,6 +53,8 @@ export interface Actions {
 
 export const actions: ActionTree<KmrState, RootState> & Actions = {
   [KmrActionTypes.ACTION_SET_CLIENT_RECT]({ commit }, rect: Rect) {
+    const assertRes = Object.entries(rect).map((item) => isNumber(item[1]))
+    if (assertRes.includes(false)) return console.log('action ACTION_SET_CLIENT_RECT is not accept to saved!')
     commit(KmrMutationTypes.SET_CLIENT_RECT, rect)
   },
   [KmrActionTypes.ACTION_SET_MODAL_RECT]({ commit }, rect: Rect) {

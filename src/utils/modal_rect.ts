@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-02-14 01:31:29
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-14 01:39:02
+ * @ Modified time: 2023-03-06 22:10:46
  * @ Description:
  */
 import { Rect } from '@/store/modules/kmr/state'
@@ -21,7 +21,7 @@ export function setWH (size: Rect) {
   }
   const rect = store.state.kmr.modal.rect
   const { w = rect.w, h = rect.h } = size
-  store.dispatch(KmrActionTypes.ACTION_SET_CLIENT_RECT, { w, h })
+  store.dispatch(KmrActionTypes.ACTION_SET_MODAL_RECT, { w, h })
   doc.style.width = w + 'px'
   doc.style.height = h + 'px'
   webview.call('resize', [w, h])
@@ -42,6 +42,6 @@ export function resetWH () {
 export function moveto (coord: Rect) {
   const rect = store.state.kmr.modal.rect
   const { x = rect.x, y = rect.y } = coord
-  store.dispatch(KmrActionTypes.ACTION_SET_CLIENT_RECT, { x, y })
+  store.dispatch(KmrActionTypes.ACTION_SET_MODAL_RECT, { x, y })
   webview.call('move', [x, y])
 }

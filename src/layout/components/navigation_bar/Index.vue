@@ -2,7 +2,7 @@
  * @Description: 导航栏
  * @Author: Rongxis
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-19 01:58:57
+ * @ Modified time: 2023-03-07 02:00:09
  * @LastEditTime: 2021-01-27 19:16:50
 -->
 <template>
@@ -56,22 +56,22 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.navbar {
-  height: 50px;
-  overflow: hidden;
-  position: relative;
-  background: #25272E;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+// .navbar {
+//   height: 50px;
+//   overflow: hidden;
+//   position: relative;
+//   background: #25272E;
+//   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 
-  .right-menu {
-    float: right;
-    height: 100%;
-    line-height: 50px;
+//   .right-menu {
+//     float: right;
+//     height: 100%;
+//     line-height: 50px;
 
-    &:focus {
-      outline: none;
-    }
+//     &:focus {
+//       outline: none;
+//     }
 
-  }
-}
+//   }
+// }
 </style>
