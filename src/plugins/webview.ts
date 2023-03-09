@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-02-14 23:35:14
  * @ Modified by: Rongxis
- * @ Modified time: 2023-03-07 01:41:55
+ * @ Modified time: 2023-03-09 02:12:21
  * @ Description:
  */
 
@@ -62,6 +62,14 @@ webview.getShared = (key?: string) => {
   } catch (error) {
     console.log(error)
   }
+}
+
+webview.record = (method?: string, params?: any) => {
+  webview.call('record', [method, params])
+}
+
+webview.play = (method?: string, params?: any) => {
+  webview.call('play', [method, params])
 }
 
 const plugin = {

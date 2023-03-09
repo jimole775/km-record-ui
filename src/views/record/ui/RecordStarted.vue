@@ -2,7 +2,7 @@
  * @ Author: Rongxis
  * @ Create Time: 2023-01-08 01:39:55
  * @ Modified by: Rongxis
- * @ Modified time: 2023-02-20 22:21:44
+ * @ Modified time: 2023-03-09 01:44:58
  * @ Description:
  -->
 
@@ -24,7 +24,7 @@
     <el-col :span="6">
       <div class="record-class-item pause-item">
         <button @click="runPause">
-          <SvgIcon v-if="paused" style="transform: translateX(3px);" name="icon-play" font-size="2.8rem" />
+          <SvgIcon v-if="paused" style="transform: translateX(3px);" name="icon-play3" font-size="2.8rem" />
           <SvgIcon v-if="working" name="icon-zantinganniu" font-size="3.2rem" />
         </button>
       </div>
